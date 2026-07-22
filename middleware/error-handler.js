@@ -8,3 +8,5 @@ const errorHandler = (err, req, res, next) => {
 
   res.status(customError.statusCode).json({ msg: customError.msg });
 };
+
+module.exports = errorHandler;

@@ -3,6 +3,7 @@ require('express-async-errors');
 const express = require('express');
 const errorHandler = require('./middleware/error-handler');
 const notFound = require('./middleware/not-found');
+const authRouter = require('./router/auth');
 
 // Extra Security
 const helmet = require('helmet');
@@ -25,7 +26,9 @@ app.use(cors());
 app.use(xss());
 
 // middleware
-app.use(errorHandler());
-app.use(notFound());
+app.use('/api/v1/auth', authRouter);
+
+app.use(errorHandler);
+app.use(notFound);
 
 module.exports = app;
