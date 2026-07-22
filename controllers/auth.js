@@ -4,7 +4,7 @@ const { StatusCodes } = require('http-status-codes');
 const register = async (req, res) => {
   const result = await authServices.register(req.body);
 
-  res.status(StatusCodes.OK).json({
+  res.status(StatusCodes.CREATED).json({
     success: true,
     message: 'User register successfully',
     data: result,

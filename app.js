@@ -4,6 +4,8 @@ const express = require('express');
 const errorHandler = require('./middleware/error-handler');
 const notFound = require('./middleware/not-found');
 const authRouter = require('./router/auth');
+const contactRouter = require('./router/contact');
+const authenticateUser = require('./middleware/auth');
 
 // Extra Security
 const helmet = require('helmet');
@@ -27,6 +29,7 @@ app.use(xss());
 
 // middleware
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/contacts', authenticateUser, contactRouter);
 
 app.use(errorHandler);
 app.use(notFound);
