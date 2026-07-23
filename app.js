@@ -31,7 +31,7 @@ app.use(xss());
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/contacts', authenticateUser, contactRouter);
 
-app.use(errorHandler);
 app.use(notFound);
+app.use(errorHandler);
 
 module.exports = app;
